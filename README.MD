@@ -26,8 +26,8 @@ Check application status:
 ```sh
 
 curl 'localhost:8080/api/v1/books' \
-> --header 'Accept: application/json' \
-> --header 'Content-Type: application/json'
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json'
 
 ```
 The response should be 

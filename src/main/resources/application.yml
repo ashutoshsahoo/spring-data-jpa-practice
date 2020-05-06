@@ -1,0 +1,12 @@
+logging:
+  level:
+    com.ashu.practice: DEBUG
+server:  servlet:    context-path: /api/v1
+    
+spring:#  datasource:#    url: jdbc:postgresql://localhost/booksdb
+#    username: springuser
+#    password: admin123
+#  jpa:#    hibernate:#      ddl-auto: validate
+#    show-sql: true
+  flyway:    locations:    - classpath:db/migration/h2
+          

@@ -3,9 +3,6 @@ package com.ashu.practice.exception;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
-
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +13,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.ashu.practice.model.ErrorResponse;
+import com.ashu.practice.dto.ErrorResponse;
 
 @ControllerAdvice
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
@@ -27,17 +24,6 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 		errors.add(ex.getLocalizedMessage());
 		ErrorResponse errorResponse = new ErrorResponse("Server Error", errors);
 		return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
-	}
-
-	@ExceptionHandler({ ConstraintViolationException.class })
-	public ResponseEntity<Object> handleConstraintViolation(ConstraintViolationException ex, WebRequest request) {
-		List<String> errors = new ArrayList<>();
-		for (ConstraintViolation<?> error : ex.getConstraintViolations()) {
-			errors.add(error.getMessage());
-		}
-
-		ErrorResponse errorResponse = new ErrorResponse("Validation Failed", errors);
-		return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
 	}
 
 	@ExceptionHandler(IsbnAlreadyExistsException.class)

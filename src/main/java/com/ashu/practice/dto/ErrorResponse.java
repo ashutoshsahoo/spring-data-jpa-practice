@@ -1,4 +1,4 @@
-package com.ashu.practice.model;
+package com.ashu.practice.dto;
 
 import java.io.Serializable;
 import java.util.List;

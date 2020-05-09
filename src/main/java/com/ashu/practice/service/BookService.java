@@ -2,19 +2,20 @@ package com.ashu.practice.service;
 
 import java.util.List;
 
-import com.ashu.practice.model.Book;
+import com.ashu.practice.dto.BookDto;
+import com.ashu.practice.dto.BookSearchRequest;
 
 public interface BookService {
 
-	Book create(Book book);
+	BookDto create(BookDto bookDto);
 
-	Book findById(Long id);
+	BookDto findById(Long id);
 
-	List<Book> findByName(String name);
+	List<BookDto> search(BookSearchRequest request);
 
-	List<Book> findAll();
+	List<BookDto> findAll();
 
-	Book update(Long id, Book book);
+	BookDto update(Long id, BookDto bookDto);
 
 	void delete(Long id);
 }

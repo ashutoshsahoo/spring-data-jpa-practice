@@ -6,5 +6,14 @@ public class BookConstants {
 
 	public static final String NAME_REGEX = "^[a-zA-Z\\s]+";
 
-	public static final String NAME_REGEX_FAILURE_MSG = "Invalid author - no special characters allowed";
+	public static final String SEARCH_REGEX = "([ ]*+[0-9A-Za-z]++[ ]*+)+";
+
+	public static final String NAME_REGEX_FAILURE_MSG = "Invalid author - no special characters or numbers allowed";
+
+	public static final String SEARCH_REGEX_FAILURE_MSG = "No special characters allowed, only letters, digits and space";
+
+	private BookConstants() {
+		super();
+	}
+
 }
